@@ -13,34 +13,11 @@
 
   const PORT = process.env.PORT || 3000;
 
+  app.set('view engine', 'jade');
 
-//http.createServer((req,res) => {
-  //console.log(req.method, req.url);
-
-  //if (req.url === '/hello') {
-    //const msg = '<h1>Hello World!</h1><h2>Goodbye World!</h2>';
-    //res.writeHead(200, {
-      //'Content-Type': 'text/html'
-    //});
-
-    //msg.split('').forEach((char, i) => {
-      //setTimeout(() => {
-        //res.write(char);
-      //}, 1000 * i);
-    //});
-
-////    res.write('<h1>Hey HEY<h1>');
-    //setTimeout(() => {
-    //res.end();
-    //}, 20000);
-
-  //} else if (req.url === '/random') {
-    //res.end(Math.random().toString());
-  //} else {
-    //res.writeHead(403);
-    //res.end('Access Denied!');
-  //}
-//})
+  app.get('/', (req, res) => {
+    res.render('index');
+  });
 
 
 
@@ -96,7 +73,6 @@ app.listen(PORT, () => {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (min-max)) + min;
 }
-Status API Training Shop Blog About Pricing
 
 
 // dont use child process
