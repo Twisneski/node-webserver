@@ -8,18 +8,55 @@
 
 'use strict';
 
-  const express = require('express');
-  const app = express();
 
-  const PORT = process.env.PORT || 3000;
+const express = require('express');
+const bodyParser = require('body-parser');
+//body-parser has to be installed via npm as well
+//middle ware before post
+//use tmp for gitignore files
+const app = express();
+const path = require('path');
+const chalk = require('chalk')
 
-  app.set('view engine', 'jade');
+const PORT = process.env.PORT || 3000;
+const upload = require('multer')({ dest: 'tmp/uploads' });
 
-  app.get('/', (req, res) => {
-    res.render('index');
+
+app.set('view engine', 'jade');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.locals.title = 'THE Super Cool App';
+
+//app.use(bodyParser.urlencoded({ extended: false }))
+//middleware for all routes
+
+app.get('/', (req, res) => {
+  setTimeout(() => {
+    res.render('index', {
+    date: new Date()
+    });
+  }, 20000);
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact')
   });
 
+app.post('/contact', (req, res) => {
+  console.log(req.body);
+  const name = req.body.name;
+  res.send(`<h1>Thanks for contacting us ${name}</h1>`);
+});
+//used upticks
 
+app.get('/sendphoto', (req, res) => {
+  res.render('sendphoto');
+});
+
+app.post('/sendphoto', upload.single('image'), (req, res) => {
+  res.send('<h1>Thanks for sending us your photo</h1>');
+});
 
 app.get('/hello', (req, res) => {
  const name = req.query.name;
@@ -48,6 +85,7 @@ console.log('QUERY PARAMS ', req.query);
   //const month = require('node-cal/lib/month');
   //console.log(month);
 //});
+
 
 app.get('/random', (req, res) => {
   res.send(Math.random().toString());
