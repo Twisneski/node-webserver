@@ -2,12 +2,8 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
   body
-    h1 Contact #{title}
+    h1 Welcome to #{title}
     p The date is now #{date.toLocaleDateString()}
-    i.fa.fa-fort-awesome
-    button#hide Calendar
-  script(src='../vendor/jquery/dist/jquery.min.js')
-  script(src='/server.js')
-
+    p Breaking news:&#32;
+      a(href=topStory.url)= topStory.title
