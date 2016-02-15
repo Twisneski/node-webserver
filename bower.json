@@ -1,0 +1,22 @@
+{
+  "name": "node-webserver",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Christina Wisneski <tina.wisneski525@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Twisneski/node-webserver",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0"
+  }
+}

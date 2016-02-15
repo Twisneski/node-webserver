@@ -1,0 +1,18 @@
+//- child.jade
+extends ./layout.jade
+block .container
+  h1 Contact
+  form(method='POST')
+    .form-group
+      label Name
+      input(type='text',name='name', placeholder='Abe Lincoln')
+    .form-group
+      label email
+      input(type='email',name='email', placeholder='abe@wh.gov')
+    .form-group
+      label Message
+      input(type='testarea', placeholder='This site is awesome!')
+    .form-group
+      input(type='submit', value='Contact Us!')
+
+
