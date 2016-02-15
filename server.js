@@ -9,7 +9,32 @@ const mongoose = require('mongoose');
 const routes = require('./routes/');
 const PORT = process.env.PORT || 3000;
 //an object containing a user environment - set up port and defaults to 3000 if one not available
-const MONGODB_URL = 'mongodb://localhost:27017/node-webserver';
+//have to have dynamic port(process.env.PORT) with heroku
+const MONGODB_HOST = process.env.MONGODB_HOST || 'localhost';
+const MONGODB_PORT = process.env.MONGODB_PORT || 27017;
+const MONGODB_USER = process.env.MONGODB_USER || '';
+const MONGODB_PASS = process.env.MONGODB_PASS || 'node-webserver';
+const MONGODB_NAME = 'node-webserver';
+
+
+const MONGODB_URL_PREFIX = MONGODB_USER
+  ? `${MONGODB_USER}:${MONGODB_PASS}@`
+  : '';
+
+const MONGODB_URL = `mongodb://${MONGODB_URL_PREFIX}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
+//turnary operator
+
+//const MONGODB_URL = 'mongodb://localhost:27017/node-webserver';
+//change this out when using heroku
+//if (production({
+  //const MONGODB_URL = 'mongodb://a:b@ds027699.mongolab.com:27699/node-webserver';
+//} else {
+  //const MONGODB_URL = 'mongodb://localhost:27017/node-webserver';
+//}
+
+//if (process.env.NODE.ENV === 'production') {
+
+//}
 
 app.set('view engine', 'jade');
 //to be able to use jade
