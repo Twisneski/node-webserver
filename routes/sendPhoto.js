@@ -11,4 +11,3 @@ router.get('/sendphoto', sendphoto.index);
 router.post('/sendphoto', upload.single('image'), sendphoto.new);
 
 module.exports = router;
-

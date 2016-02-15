@@ -20,8 +20,10 @@ const MONGODB_URL_PREFIX = MONGODB_USER
   ? `${MONGODB_USER}:${MONGODB_PASS}@`
   : '';
 
+
+
 const MONGODB_URL = `mongodb://${MONGODB_URL_PREFIX}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
-//turnary operator
+//ternary operator
 
 //const MONGODB_URL = 'mongodb://localhost:27017/node-webserver';
 //change this out when using heroku
@@ -173,7 +175,7 @@ mongoose.connection.on('open', () => {
 //});
 
 //app.post('/contact', (req, res) => {
-  
+
   //const obj = new Contact({
     //name: req.body.name,
     //email: req.body.email,
