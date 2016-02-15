@@ -51,13 +51,6 @@ mongoose.connection.on('open', () => {
     console.log(`Node.js server started. Listening on port ${PORT}`);
   });
 });
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-// Returns a ranom integer between min (included) and max (excluded)
-//function getRandomInt (min, max) {
-  //return Math.floor(Math.random() * (max - min)) + min;
-//}
-
-
 
 
 
