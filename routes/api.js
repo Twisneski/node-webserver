@@ -35,6 +35,7 @@ router.get('/api/weather', (req, res) => {
     if (err) throw err;
 
     res.header('Access-Control-Allow-Origin', '*');
+    //this allows anyone to use api from this website
     res.send(JSON.parse(body));
   });
 });
